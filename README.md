@@ -94,6 +94,7 @@ Loaded 79 login events
 ```
 
 <img width="594" height="404" alt="Screenshot 2026-07-22 at 12 31 37 PM" src="https://github.com/user-attachments/assets/961c6f6c-d9cb-4f97-8f34-b41b0f662085" />
+
 *Output from running `analyze.py` against the synthetic `sample_auth.log` dataset*
 
 ## Project Structure
