@@ -95,6 +95,13 @@ Loaded 79 login events
 
 *(Colors don't render in plain markdown — HIGH shows red, MEDIUM shows yellow in an actual terminal. Feel free to replace this text block with a real screenshot of your own terminal output.)*
 
+## Project Structure
+- `generate_logs.py` — generates synthetic `sample_auth.log` data with embedded attack patterns for testing
+- `parser.py` — parses raw log lines into structured login event objects
+- `rules.py` — detection logic for brute force, slow brute force, and odd-hours login rules
+- `analyze.py` — main entry point; loads events, runs detection rules, prints findings
+- `test_rules.py` — pytest unit tests for detection rules
+
 ## Design decisions & threshold tuning
 
 Thresholds were tuned by sweeping a range of values against the
