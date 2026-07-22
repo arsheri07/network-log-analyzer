@@ -23,7 +23,7 @@ and reason about, rather than just reading about attack patterns.
 
 ## Tech stack
 
-Python 3, [rich](https://github.com/Textualize/rich) for terminal output
+Python 3, [rich](https://github.com/Textualize/rich) for terminal output, `pytest` for testing
 
 ## How to run
 
@@ -32,6 +32,34 @@ pip install -r requirements.txt
 python3 generate_logs.py   # creates sample_auth.log with synthetic data
 python3 analyze.py         # runs detection rules and prints findings
 ```
+
+## Testing
+
+Detection logic is covered by `pytest` unit tests that check each rule
+against hand-constructed events, independent of the synthetic log
+generator:
+
+```bash
+python3 -m pytest -v
+```
+
+```
+============================= test session starts ==============================
+collected 3 items
+
+test_rules.py::test_brute_force_detects_fast_attack PASSED               [ 33%]
+test_rules.py::test_odd_hours_ignores_failed_logins PASSED               [ 66%]
+test_rules.py::test_odd_hours_flags_successful_night_login PASSED        [100%]
+
+============================== 3 passed in 0.02s ===============================
+```
+
+The odd-hours tests specifically check an edge case worth calling out:
+a failed login at 3am should NOT be flagged (failed logins are normal
+around the clock — bots try constantly), but a *successful* login at
+the same hour should be, and should carry HIGH severity for a
+privileged account like `root`. Testing this distinction directly
+guards against accidentally flagging the wrong condition.
 
 ## Sample output
 
