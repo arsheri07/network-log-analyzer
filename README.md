@@ -93,7 +93,8 @@ Loaded 79 login events
 5 finding(s) total
 ```
 
-*(Colors don't render in plain markdown — HIGH shows red, MEDIUM shows yellow in an actual terminal. Feel free to replace this text block with a real screenshot of your own terminal output.)*
+<img width="594" height="404" alt="Screenshot 2026-07-22 at 12 31 37 PM" src="https://github.com/user-attachments/assets/961c6f6c-d9cb-4f97-8f34-b41b0f662085" />
+
 
 ## Project Structure
 - `generate_logs.py` — generates synthetic `sample_auth.log` data with embedded attack patterns for testing
