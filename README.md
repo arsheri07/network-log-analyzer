@@ -21,7 +21,7 @@ and reason about, rather than just reading about attack patterns.
 - **Slow/distributed brute force** — failed logins spaced out to evade naive rate limits
 - **Odd-hours logins** — successful logins outside normal working hours (severity is raised further for privileged accounts like `root`/`admin`)
 
-## Tech stack
+## Requirements
 
 Python 3, [rich](https://github.com/Textualize/rich) for terminal output, `pytest` for testing
 
